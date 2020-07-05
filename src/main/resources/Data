@@ -1,0 +1,96 @@
+//Retailer
+{
+  "name": "Shyam",
+  "address": "B Complex Firozabad",
+  "mobile": 9876543210,
+  "lat": "",
+  "long": "",
+  "wishList": [
+    {
+      "id": 1,
+      "wishes": "Apple, Orange",
+      "isActive": false,
+      "timestamp": 3121521
+    },
+    {
+      "id": 2,
+      "wishes": "Apple, Orange",
+      "isActive": true,
+      "timestamp": 5121521
+    }
+  ],
+  "inventory": [
+    {"productName": "Apple", "availableQuantity": "10kg", "isLow": true},
+    {"productName": "Banana", "availableQuantity": "50kg", "isLow": false},
+    {"productName": "Beans", "availableQuantity": "30kg", "isLow": false},
+    {"productName": "Onion", "availableQuantity": "50kg", "isLow": true}
+  ]
+}
+
+------
+Get me my order history
+Get suggestions /(based on my previous orders)
+Get suggestions /(based on real time data)
+
+Create new wish -- manage state of wishes(isActive)
+Get all quotes(for a particular wishList) ---> return [{supplierId,(quote)}, {supplierId, quote}]
+Get a quote from a supplier ---> supplierId
+Create order for a supplier against a wishList
+
+----------------------
+Data entry for inventories
+Send quote / on a particular wish list ---> return {quote + supplierId}
+Create a quote template
+Get new wishes for a supplier
+Show real-time demand data on maps.
+
+---------
+
+
+//Supplier
+{
+  "name": "Farm Fresh Ltd",
+  "address": "Gurgaon",
+  "mobile": 9999990000,
+  "rating": 4,
+  "lat": "",
+  "long": "",
+  "quotes": [
+    {"productName": "Apple", "pricePerQty": "1000", "qty": "100", "unit": "kg"},
+    {"productName": "Banana", "pricePerQty": "500", "qty": "100", "unit": "kg"},
+    {"productName": "Orange", "pricePerQty": "1000", "qty": "100", "unit": "kg"},
+    {"productName": "Kiwi", "pricePerQty": "500", "qty": "100", "unit": "kg"}
+  ]
+}
+
+//Quotes for Wish
+[{
+  "quoteId":1,
+  "wishId" : 1
+  "mobileRetailer": 9876543210,
+  "mobileSupplier": 9999990000,
+  "quotes": [
+    {"productName": "Apple", "pricePerQty": "1000", "qty": "100", "unit": "kg"},
+    {"productName": "Banana", "pricePerQty": "500", "qty": "100", "unit": "kg"}
+  ],
+  "distance": 10km,
+  "rating": 4,
+  "logisticsCost": 100
+}
+]
+
+//Orders
+[
+  {
+    "orderId":1,
+    "isActive": true,
+    "wishId" : 1
+    "mobileRetailer": 9876543210,
+    "mobileSupplier": 9999990000,
+    "deliveryDate" : "05-07-2020",
+    "iterms":[
+      {"productName": "Apple", "price": "400", "qty": "40", "unit": "kg"},
+      {"productName": "Banana", "price": "500", "qty": "100", "unit": "kg"}
+    ]
+  }
+]
